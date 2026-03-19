@@ -11,21 +11,29 @@ namespace EchoMessenger
         {
             if (!string.IsNullOrWhiteSpace(txtMessage.Text)) // txtMessage.Text가 null이 아니고 공백이 아닌 경우에만 실행
             {
-                // 변수 선언 및 txtMessage.Text 값을 할당하여 msg_send 변수에 저장
-                string msg_send;
-                msg_send = txtMessage.Text.Trim(); // Trim() 메소드를 사용하여 txtMessage.Text의 앞뒤 공백 제거
+                if (txtMessage.Text.Length > 50)
+                {
+                    MessageBox.Show("메시지는 50자 이하로 입력해주세요.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMessage.Clear(); // txtMessage.Text 값을 초기화
+                }
+                else
+                {
+                    // 변수 선언 및 txtMessage.Text 값을 할당하여 msg_send 변수에 저장
+                    string msg_send;
+                    msg_send = txtMessage.Text.Trim(); // Trim() 메소드를 사용하여 txtMessage.Text의 앞뒤 공백 제거
 
-                // txtList에 msg_send 변수의 값을 추가
-                txtList.Items.Add($"{DateTime.Now.ToString("[HH:mm:ss]")} {msg_send}"); // 현재 시간을 메시지 앞에 붙여 출력
+                    // txtList에 msg_send 변수의 값을 추가
+                    txtList.Items.Add($"{DateTime.Now.ToString("[HH:mm:ss]")} {msg_send}"); // 현재 시간을 메시지 앞에 붙여 출력
 
-                // lblCount의 Text 값을 txtList.Items.Count로 설정하여 메시지 개수 표시
-                lblCount.Text = $"현재 대화 : {txtList.Items.Count}개";
+                    // lblCount의 Text 값을 txtList.Items.Count로 설정하여 메시지 개수 표시
+                    lblCount.Text = $"현재 대화 : {txtList.Items.Count}개";
 
-                // txtMessage.Text 값을 초기화
-                txtMessage.Clear();
+                    // txtMessage.Text 값을 초기화
+                    txtMessage.Clear();
 
-                // txtMessage에 포커스 설정
-                this.ActiveControl = txtMessage;
+                    // txtMessage에 포커스 설정
+                    this.ActiveControl = txtMessage;
+                }
             }
         }
 
@@ -46,6 +54,16 @@ namespace EchoMessenger
             {
                 send_Message();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

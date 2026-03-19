@@ -31,8 +31,10 @@
             lbl = new Label();
             txtList = new ListBox();
             txtMessage = new TextBox();
-            btnSend = new Button();
             lblCount = new Label();
+            btnSend = new Button();
+            btnDelete = new Button();
+            btnClear = new Button();
             SuspendLayout();
             // 
             // lbl
@@ -62,20 +64,9 @@
             txtMessage.Location = new Point(32, 473);
             txtMessage.Name = "txtMessage";
             txtMessage.PlaceholderText = "여기에 텍스트 입력...";
-            txtMessage.Size = new Size(675, 34);
+            txtMessage.Size = new Size(547, 34);
             txtMessage.TabIndex = 2;
             txtMessage.KeyDown += txtMessage_KeyDown;
-            // 
-            // btnSend
-            // 
-            btnSend.Font = new Font("Pretendard JP Variable Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 128);
-            btnSend.Location = new Point(735, 473);
-            btnSend.Name = "btnSend";
-            btnSend.Size = new Size(158, 34);
-            btnSend.TabIndex = 3;
-            btnSend.Text = "전송";
-            btnSend.UseVisualStyleBackColor = true;
-            btnSend.Click += btnSend_Click;
             // 
             // lblCount
             // 
@@ -86,11 +77,46 @@
             lblCount.TabIndex = 4;
             lblCount.Text = "현재 대화 : 0개";
             // 
+            // btnSend
+            // 
+            btnSend.Font = new Font("Pretendard JP Variable Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 128);
+            btnSend.Location = new Point(601, 473);
+            btnSend.Name = "btnSend";
+            btnSend.Size = new Size(53, 34);
+            btnSend.TabIndex = 3;
+            btnSend.Text = "전송";
+            btnSend.UseVisualStyleBackColor = true;
+            btnSend.Click += btnSend_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Font = new Font("Pretendard JP Variable Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 128);
+            btnDelete.Location = new Point(676, 473);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(55, 34);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "삭제";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Font = new Font("Pretendard JP Variable Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 128);
+            btnClear.Location = new Point(752, 473);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(141, 34);
+            btnClear.TabIndex = 6;
+            btnClear.Text = "대화 기록 삭제";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(929, 538);
+            Controls.Add(btnClear);
+            Controls.Add(btnDelete);
             Controls.Add(lblCount);
             Controls.Add(btnSend);
             Controls.Add(txtMessage);
@@ -108,7 +134,9 @@
         private Label lbl;
         private ListBox txtList;
         private TextBox txtMessage;
-        private Button btnSend;
         private Label lblCount;
+        private Button btnSend;
+        private Button btnDelete;
+        private Button btnClear;
     }
 }
