@@ -63,6 +63,7 @@
             txtMessage.PlaceholderText = "여기에 텍스트 입력...";
             txtMessage.Size = new Size(675, 34);
             txtMessage.TabIndex = 2;
+            txtMessage.KeyDown += txtMessage_KeyDown;
             // 
             // btnSend
             // 
