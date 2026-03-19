@@ -63,7 +63,10 @@ namespace EchoMessenger
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            txtList.Items.Clear(); // txtList의 모든 항목 제거
 
+            // lblCount의 Text 값을 txtList.Items.Count로 설정하여 메시지 개수 표시
+            lblCount.Text = $"현재 대화 : {txtList.Items.Count}개";
         }
     }
 }
