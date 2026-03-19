@@ -58,7 +58,18 @@ namespace EchoMessenger
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (txtList.SelectedItems == null || txtList.Items.Count == 0) // txtList에서 선택된 항목이 없는 경우
+            {
+                MessageBox.Show("삭제할 메시지를 선택해주세요.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // txtList에서 선택된 항목을 제거
+                txtList.Items.Remove(txtList.SelectedItems[0]);
 
+                // lblCount의 Text 값을 txtList.Items.Count로 설정하여 메시지 개수 표시
+                lblCount.Text = $"현재 대화 : {txtList.Items.Count}개";
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
