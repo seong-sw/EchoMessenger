@@ -13,10 +13,13 @@ namespace EchoMessenger
             {
                 // 변수 선언 및 txtMessage.Text 값을 할당하여 msg_send 변수에 저장
                 string msg_send;
-                msg_send = txtMessage.Text;
+                msg_send = txtMessage.Text.Trim(); // Trim() 메소드를 사용하여 txtMessage.Text의 앞뒤 공백 제거
 
                 // txtList에 msg_send 변수의 값을 추가
-                txtList.Items.Add(msg_send);
+                txtList.Items.Add($"{DateTime.Now.ToString("[HH:mm:ss]")} {msg_send}"); // 현재 시간을 메시지 앞에 붙여 출력
+
+                // lblCount의 Text 값을 txtList.Items.Count로 설정하여 메시지 개수 표시
+                lblCount.Text = $"현재 대화 : {txtList.Items.Count}개";
 
                 // txtMessage.Text 값을 초기화
                 txtMessage.Clear();

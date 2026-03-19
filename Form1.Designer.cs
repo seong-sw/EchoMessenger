@@ -32,6 +32,7 @@
             txtList = new ListBox();
             txtMessage = new TextBox();
             btnSend = new Button();
+            lblCount = new Label();
             SuspendLayout();
             // 
             // lbl
@@ -76,11 +77,21 @@
             btnSend.UseVisualStyleBackColor = true;
             btnSend.Click += btnSend_Click;
             // 
+            // lblCount
+            // 
+            lblCount.AutoSize = true;
+            lblCount.Location = new Point(30, 447);
+            lblCount.Name = "lblCount";
+            lblCount.Size = new Size(121, 21);
+            lblCount.TabIndex = 4;
+            lblCount.Text = "현재 대화 : 0개";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(929, 538);
+            Controls.Add(lblCount);
             Controls.Add(btnSend);
             Controls.Add(txtMessage);
             Controls.Add(txtList);
@@ -98,5 +109,6 @@
         private ListBox txtList;
         private TextBox txtMessage;
         private Button btnSend;
+        private Label lblCount;
     }
 }
