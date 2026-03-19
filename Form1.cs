@@ -58,7 +58,7 @@ namespace EchoMessenger
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (txtList.SelectedItems == null || txtList.Items.Count == 0) // txtList에서 선택된 항목이 없는 경우
+            if (txtList.SelectedItems.Count == 0) // txtList에서 선택된 항목이 없는 경우
             {
                 MessageBox.Show("삭제할 메시지를 선택해주세요.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
